@@ -1,3 +1,2 @@
 print("Hello World, this is a test!")
-print("This is also a test")
-print ("hej")
+print("This is also a test!")
