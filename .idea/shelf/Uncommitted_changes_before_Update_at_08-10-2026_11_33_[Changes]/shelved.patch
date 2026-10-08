@@ -1,0 +1,241 @@
+Index: database_tabelstruktur.py
+===================================================================
+diff --git a/database_tabelstruktur.py b/database_tabelstruktur.py
+deleted file mode 100644
+--- a/database_tabelstruktur.py	(revision 5dc2497bea4fe053e9ecc7dab4426cd165f932d9)
++++ /dev/null	(revision 5dc2497bea4fe053e9ecc7dab4426cd165f932d9)
+@@ -1,3 +0,0 @@
+-print("Hello World, this is a test!")
+-print("This is also a test!")
+-print("hej")
+Index: .idea/CaseOpgaveSommer2026.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/.venv\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"~/PycharmProjects/CaseOpgaveSommer2026/.venv\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/CaseOpgaveSommer2026.iml b/.idea/CaseOpgaveSommer2026.iml
+--- a/.idea/CaseOpgaveSommer2026.iml	(revision 5dc2497bea4fe053e9ecc7dab4426cd165f932d9)
++++ b/.idea/CaseOpgaveSommer2026.iml	(date 1791450594844)
+@@ -4,7 +4,7 @@
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+     </content>
+-    <orderEntry type="jdk" jdkName="~/PycharmProjects/CaseOpgaveSommer2026/.venv" jdkType="Python SDK" />
++    <orderEntry type="jdk" jdkName="~\PycharmProjects\CaseOpgaveSommer2026\.venv" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"~/PycharmProjects/CaseOpgaveSommer2026/.venv\" project-jdk-type=\"Python SDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 5dc2497bea4fe053e9ecc7dab4426cd165f932d9)
++++ b/.idea/misc.xml	(date 1791450594872)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="~/PycharmProjects/CaseOpgaveSommer2026/.venv" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="~\PycharmProjects\CaseOpgaveSommer2026\.venv" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
+Index: Script 1/database_tabelstruktur.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Script 1/database_tabelstruktur.py b/Script 1/database_tabelstruktur.py
+new file mode 100644
+--- /dev/null	(date 1791451926011)
++++ b/Script 1/database_tabelstruktur.py	(date 1791451926011)
+@@ -0,0 +1,30 @@
++#Script #1
++#Et script til at definere databasens tabelstruktur –
++# hvis I har f.eks. to tabeller så også med en
++#fremmednøgle. I skal bruge CREATE TABLE-kommandoen
++
++import sqlite3
++conn = sqlite3.connect('webshop.db')
++cursor = conn.cursor()
++
++cursor.execute("""
++CREATE TABLE products (
++    id INTEGER PRIMARY KEY,
++    name TEXT,
++    price REAL,
++    stock INTEGER,
++    category_id INTEGER, foreign key(category_id) REFERENCES categories(id)
++)
++""")
++cursor.execute("""
++create table categories
++(
++    id INTEGER PRIMARY KEY,
++    name TEXT
++)
++""")
++
++conn.commit()
++conn.close()
++
++print("Tabellerne er oprettet!")
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c8175dc7-5daa-4b91-88d4-e2db25bb54d4\" name=\"Changes\" comment=\"This is a second test\">\r\n      <change beforePath=\"$PROJECT_DIR$/database_tabelstruktur.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/database_tabelstruktur.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"INCOMING_COMMITS_CHECK_STRATEGY\" value=\"FETCH\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\r\n  \"lastFilter\": {\r\n    \"state\": \"OPEN\",\r\n    \"assignee\": \"AImal947\"\r\n  }\r\n}]]></component>\r\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\r\n  \"selectedUrlAndAccountId\": {\r\n    \"url\": \"https://github.com/Mikkel-CySe/CaseOpgaveSommer2026.git\",\r\n    \"accountId\": \"3276922b-decc-4ab6-a1d7-c697acc93431\"\r\n  }\r\n}]]></component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3,\r\n  &quot;fromUser&quot;: false\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"3KP8R7QRPZZH6weYn44E1exeNmK\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"RunOnceActivity.typescript.service.memoryLimit.init\": \"true\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"git.auto.fetch.suggestion.counter\": \"1\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.jshint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.jshint\": \"\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"python.packages.toolwindow.project.migrated.to.right.top.v2\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-821f704e66d9-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.9437.214\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c8175dc7-5daa-4b91-88d4-e2db25bb54d4\" name=\"Changes\" comment=\"\" />\r\n      <created>1791447832190</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1791447832190</updated>\r\n      <workItem from=\"1791447833174\" duration=\"829000\" />\r\n      <workItem from=\"1791449957337\" duration=\"315000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"This is a second test\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1791450020821</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1791450020821</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"This is a second test\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"This is a second test\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 5dc2497bea4fe053e9ecc7dab4426cd165f932d9)
++++ b/.idea/workspace.xml	(date 1791451966677)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="ALL" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c8175dc7-5daa-4b91-88d4-e2db25bb54d4" name="Changes" comment="This is a second test">
++    <list default="true" id="c8175dc7-5daa-4b91-88d4-e2db25bb54d4" name="Changes" comment="It works!">
++      <change beforePath="$PROJECT_DIR$/.idea/CaseOpgaveSommer2026.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CaseOpgaveSommer2026.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/database_tabelstruktur.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_tabelstruktur.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -20,19 +23,18 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "AImal947"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;AImal947&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="GithubPullRequestsUISettings"><![CDATA[{
+   "selectedUrlAndAccountId": {
+     "url": "https://github.com/Mikkel-CySe/CaseOpgaveSommer2026.git",
+-    "accountId": "3276922b-decc-4ab6-a1d7-c697acc93431"
++    "accountId": "61eaa1a7-2bdb-4452-9822-596e9cc9a507"
+   }
+ }]]></component>
+   <component name="ProjectColorInfo">{
+@@ -44,29 +46,55 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+-    "codeWithMe.voiceChat.enabledByDefault": "false",
+-    "git-widget-placeholder": "master",
+-    "git.auto.fetch.suggestion.counter": "1",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.jshint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.jshint": "",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
++    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
++    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
++  <component name="RunManager">
++    <configuration name="database_tabelstruktur" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="CaseOpgaveSommer2026" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Script 1" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="DEBUG_JUST_MY_CODE" value="false" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
++      <option name="RUN_TOOL" value="" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Script 1/database_tabelstruktur.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Python.database_tabelstruktur" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-python-sdk-821f704e66d9-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.9437.214" />
++        <option value="bundled-python-sdk-73a66231627c-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10968.92" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -78,17 +106,9 @@
+       <option name="presentableId" value="Default" />
+       <updated>1791447832190</updated>
+       <workItem from="1791447833174" duration="829000" />
+-      <workItem from="1791449957337" duration="315000" />
+-    </task>
+-    <task id="LOCAL-00001" summary="This is a second test">
+-      <option name="closed" value="true" />
+-      <created>1791450020821</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1791450020821</updated>
++      <workItem from="1791449957337" duration="26000" />
++      <workItem from="1791451173775" duration="654000" />
+     </task>
+-    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -105,8 +125,4 @@
+       </map>
+     </option>
+   </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="This is a second test" />
+-    <option name="LAST_COMMIT_MESSAGE" value="This is a second test" />
+-  </component>
+ </project>
+\ No newline at end of file
